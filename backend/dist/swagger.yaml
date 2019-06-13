@@ -1,0 +1,286 @@
+basePath: /api/v1
+consumes:
+    - application/json
+definitions: {}
+info:
+    title: libroteca-angy
+    version: 0.1.0
+    description: 'Initial server using node.js SDK APIs'
+    license:
+        name: Apache-2.0
+paths:
+    '/items/searchUser/{user}':
+        get:
+            operationId: SearchUser
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: ""
+                    schema:
+                        type: object
+            tags:
+                - Items
+            security: []
+            parameters:
+                -
+                    in: path
+                    name: user
+                    required: true
+                    type: string
+    '/items/searchEmail/{email}':
+        get:
+            operationId: SearchEmail
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: ""
+                    schema:
+                        type: object
+            tags:
+                - Items
+            security: []
+            parameters:
+                -
+                    in: path
+                    name: email
+                    required: true
+                    type: string
+    /items/newUser:
+        post:
+            operationId: NewUser
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: ""
+                    schema:
+                        type: object
+            tags:
+                - Items
+            security: []
+            parameters: []
+    /items/checkUser:
+        post:
+            operationId: CheckUser
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: ""
+                    schema:
+                        type: object
+            tags:
+                - Items
+            security: []
+            parameters: []
+    /items/getUser:
+        get:
+            operationId: GetUser
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: ""
+                    schema:
+                        type: object
+            tags:
+                - Items
+            security: []
+            parameters: []
+    /items/checkToken:
+        get:
+            operationId: CheckToken
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: ""
+                    schema:
+                        type: object
+            tags:
+                - Items
+            security: []
+            parameters: []
+    /items/checkReadedBook:
+        post:
+            operationId: CheckReadedBook
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: ""
+                    schema:
+                        type: object
+            tags:
+                - Items
+            security: []
+            parameters: []
+    /items/addLeido:
+        post:
+            operationId: AddLeido
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: ""
+                    schema:
+                        type: object
+            tags:
+                - Items
+            security: []
+            parameters: []
+    /items/takeAllReadedBooks:
+        get:
+            operationId: TakeAllReadedBooks
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: ""
+                    schema:
+                        type: object
+            tags:
+                - Items
+            security: []
+            parameters: []
+    /items/takeAllFavsBooks:
+        get:
+            operationId: TakeAllFavsBooks
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: ""
+                    schema:
+                        type: object
+            tags:
+                - Items
+            security: []
+            parameters: []
+    '/items/borrarLeido/{idLibro}':
+        get:
+            operationId: DeleteReadedBook
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: ""
+                    schema:
+                        type: object
+            tags:
+                - Items
+            security: []
+            parameters:
+                -
+                    in: path
+                    name: idLibro
+                    required: true
+                    format: double
+                    type: number
+    /items/modificarNotaLibroLeido:
+        post:
+            operationId: ModificarNotaLibroLeido
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: ""
+                    schema:
+                        type: object
+            tags:
+                - Items
+            security: []
+            parameters: []
+    /items/modificarComentariosLibroLeido:
+        post:
+            operationId: ModificarComentariosLibroLeido
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: ""
+                    schema:
+                        type: object
+            tags:
+                - Items
+            security: []
+            parameters: []
+    '/items/addFavorito/{id}':
+        get:
+            operationId: AddFavorito
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: ""
+                    schema:
+                        type: object
+            tags:
+                - Items
+            security: []
+            parameters:
+                -
+                    in: path
+                    name: id
+                    required: true
+                    format: double
+                    type: number
+    '/items/borrarFavorito/{idLeido}':
+        get:
+            operationId: BorrarFavorito
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: ""
+                    schema:
+                        type: object
+            tags:
+                - Items
+            security: []
+            parameters:
+                -
+                    in: path
+                    name: idLeido
+                    required: true
+                    format: double
+                    type: number
+    /items/updateUser:
+        post:
+            operationId: UpdateUser
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: ""
+                    schema:
+                        type: object
+            tags:
+                - Items
+            security: []
+            parameters: []
+    /items/allUsers:
+        get:
+            operationId: AllUsers
+            produces:
+                - application/json
+            responses:
+                '200':
+                    description: ""
+                    schema:
+                        type: object
+            tags:
+                - Items
+            security: []
+            parameters: []
+produces:
+    - application/json
+swagger: '2.0'
+securityDefinitions:
+    jwt:
+        type: apiKey
+        name: x-access-token
+        in: header
+host: 'localhost:3000'

@@ -1,0 +1,21 @@
+{
+    "swagger": {
+      "outputDirectory": "./dist",
+      "entryFile": "./src/app.ts",
+      "basePath": "/api/v1",
+      "yaml": true,
+      "securityDefinitions": {
+        "jwt": {
+          "type": "apiKey",
+          "name": "x-access-token",
+          "in": "header"
+        }
+      }
+    },
+    "routes": {
+      "basePath": "/api/v1",
+      "entryFile": "./src/app.ts",
+      "routesDir": "./src"
+    }
+  }
+  

@@ -1,0 +1,4 @@
+[2019-05-14T09:14:22.322] [ERROR] http - ::1 - - "POST /api/v1/items/checkUser HTTP/1.1" 500 1357 "http://localhost:4200/home" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36"
+[2019-05-14T09:15:05.173] [INFO] http - ::1 - - "POST /api/v1/items/checkUser HTTP/1.1" 200 214 "http://localhost:4200/home" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36"
+[2019-05-14T09:15:08.253] [INFO] http - ::1 - - "POST /api/v1/items/checkToken HTTP/1.1" 200 4 "http://localhost:4200/inicio" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36"
+[2019-05-14T09:16:39.299] [INFO] http - ::1 - - "POST /api/v1/items/checkToken HTTP/1.1" 200 5 "http://localhost:4200/busquedaTitulo" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36"

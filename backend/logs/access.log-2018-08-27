@@ -1,0 +1,8 @@
+[2018-08-27T12:27:38.013] [INFO] http - ::1 - - "GET /api/v1/docs/ HTTP/1.1" 200 3253 "" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0"
+[2018-08-27T12:27:38.680] [INFO] http - ::1 - - "GET /api/v1/docs/swagger-ui-bundle.js HTTP/1.1" 200 1448844 "http://localhost:3000/api/v1/docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0"
+[2018-08-27T12:27:38.700] [INFO] http - ::1 - - "GET /api/v1/docs/swagger-ui.css HTTP/1.1" 200 154488 "http://localhost:3000/api/v1/docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0"
+[2018-08-27T12:27:38.815] [INFO] http - ::1 - - "GET /api/v1/docs/swagger-ui-init.js HTTP/1.1" 200 2198 "http://localhost:3000/api/v1/docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0"
+[2018-08-27T12:27:39.075] [INFO] http - ::1 - - "GET /api/v1/docs/swagger-ui-standalone-preset.js HTTP/1.1" 200 440850 "http://localhost:3000/api/v1/docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0"
+[2018-08-27T12:27:39.390] [INFO] http - ::1 - - "GET /api/v1/docs/favicon-16x16.png HTTP/1.1" 200 445 "" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0"
+[2018-08-27T12:27:45.131] [INFO] http - ::1 - - "GET /api/v1/items/fgsdg HTTP/1.1" 200 21 "http://localhost:3000/api/v1/docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0"
+[2018-08-27T12:29:14.323] [INFO] http - ::1 - - "GET /api/v1/items/fgsdg HTTP/1.1" 200 50 "http://localhost:3000/api/v1/docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0"
