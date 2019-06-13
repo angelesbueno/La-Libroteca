@@ -1,0 +1,37 @@
+.wrapper {
+    width: 50%;
+    margin: 5% auto;
+}
+
+.nav-registro {
+    text-align: center;
+    background-color: #e4e9ea;
+    padding: 3% 0;
+}
+
+.loginButton {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.loginButton button {
+    margin: 3% 8%;
+}
+
+.loginButton button a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer-registro {
+    width: 100%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    background-color: #e4e9ea;
+}
+
+.footer-registro small {
+    display: block;
+    color: #212529;
+    text-align: right;
+}

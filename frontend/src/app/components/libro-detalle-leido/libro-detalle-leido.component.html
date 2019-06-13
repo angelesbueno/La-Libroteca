@@ -1,0 +1,244 @@
+<app-navbar></app-navbar>
+<div class="jumbotron jumbotron-fluid" *ngIf="this.libroError && !this.tengoLibro">
+    <div class="container">
+        <h3 class="display-4">Libro no encontrado</h3>
+        <button type="button" class="btn btn-outline-info" (click)="volver()" style="margin-right: 25px;">
+            <i class="fas fa-arrow-left mr-2"></i>
+            Volver
+        </button>
+    </div>
+</div>
+<div *ngIf="this.libro" class="container-fluid container-custom">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-3 card-libro animated fadeIn fast">
+                <div class="row no-gutters">
+                    <div class="col-md-4 col-img">
+                        <img [src]="this.libro.portada" class="card-img" alt="{{ this.libro.titulo }}" />
+                        <div class="button-box">
+                            <button type="button" class="btn btn-sm favorito" *ngIf="
+                                    this.existeLibroFavorito(this.libro.idGB)
+                                " (click)="openModalEliminarFavorito(templateEliminarFavorito)">
+                                <i
+                                    class="fas fa-heart mr-2"
+                                    style="color: red"
+                                ></i
+                                >Favorito
+                            </button>
+
+                            <ng-template #templateEliminarFavorito>
+                                <div class="modal-header">
+                                    <h4 class="modal-title pull-left">
+                                        {{ this.libro.titulo }}
+                                    </h4>
+                                    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="../../../assets/corazon.png" alt="libro" style="margin-bottom: 20px" /> ¿Realmente desea eliminar este libro de su lista de favoritos?
+                                    <div class="modal-button">
+                                        <button type="button" class="btn btn-outline-success" (click)="
+                                                    borrarFavorito(
+                                                        this.libro.id
+                                                    )
+                                                "><i class="far fa-thumbs-up mr-2"></i>
+                                                Sí
+                                            </button>
+                                        <button type="button" class="btn btn-outline-danger" (click)="modalRef.hide()"><i
+                                                    class="fas fa-times mr-2"></i>
+                                                Cancelar
+                                            </button>
+                                    </div>
+                                </div>
+                            </ng-template>
+
+                            <button type="button" class="btn btn-outline-danger btn-sm" (click)="openModal(templateEliminarLeido)">
+                                <i class="far fa-trash-alt mr-2"></i>Eliminar
+                                leído
+                            </button>
+                            <ng-template #templateEliminarLeido>
+                                <div class="modal-header">
+                                    <h4 class="modal-title pull-left">
+                                        {{ this.libro.titulo }}
+                                    </h4>
+                                    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="../../../assets/addLeido.png" alt="libro" style="margin-bottom: 20px" /> ¿Realmente desea eliminar este libro de su lista de libros leídos?
+                                    <div class="modal-button">
+                                        <button type="button" class="btn btn-outline-success" (click)="
+                                                borrarLeido(this.libro.idLibro)
+                                            ">
+                                            <i
+                                                class="far fa-thumbs-up mr-2"
+                                            ></i>
+                                            Sí
+                                        </button>
+                                        <button type="button" class="btn btn-outline-danger" (click)="modalRef.hide()">
+                                            <i class="fas fa-times mr-2"></i>
+                                            Cancelar
+                                        </button>
+                                    </div>
+                                </div>
+                            </ng-template>
+                            <button type="button" class="btn btn-outline-warning btn-sm" *ngIf="
+                                    !this.existeLibroFavorito(this.libro.idGB)
+                                " (click)="
+                                    openModalFavorito(
+                                        templateFavorito,
+                                        this.libro.id
+                                    )
+                                ">
+                                <i
+                                    class="fas fa-heart mr-2"
+                                    style="color: red"
+                                ></i>
+                                Añadir a favoritos
+                            </button>
+
+                            <ng-template #templateFavorito>
+                                <div class="modal-header">
+                                    <h4 class="modal-title pull-left">
+                                        {{ this.libro.titulo }}
+                                    </h4>
+                                    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="../../../assets/corazon.png" alt="libro" style="margin-bottom: 20px" />
+                                    <div class="modal-button">
+                                        <button type="button" class="btn btn-outline-primary genial" (click)="modalRef.hide()">
+                                            <i class="far fa-thumbs-up mr-2"></i
+                                            >¡Añadido a tu lista de favoritos!
+                                        </button>
+                                    </div>
+                                </div>
+                            </ng-template>
+                            <button type="button" class="btn btn-outline-info btn-sm volver" (click)="volver()">
+                                <i class="fas fa-arrow-left mr-2"></i>Volver
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ this.libro.titulo }}</h3>
+                            <h6 class="card-text">{{ this.libro.autor }}</h6>
+                            <small class="card-text">{{
+                                this.libro.editorial
+                            }}</small>
+                            <hr />
+                            <p class="card-text sinopsis">
+                                {{ this.libro.sinopsis }}
+                            </p>
+                            <div class="comentarios mt-4">
+                                <span style="font-weight: bold">{{
+                                    this.libro.observaciones
+                                }}</span>
+                                <button class="btn btn-sm btn-outline-primary button-comentarios" (click)="
+                                        openModal(templateModificarComentarios)
+                                    ">
+                                    Modificar comentarios
+                                </button>
+
+                                <ng-template #templateModificarComentarios>
+                                    <div class="modal-header">
+                                        <h4 class="modal-title pull-left">
+                                            {{ this.libro.titulo }}
+                                        </h4>
+                                        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                                            <span aria-hidden="true"
+                                                >&times;</span
+                                            >
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="../../../assets/lapiz.png" alt="libro" style="margin-bottom: 20px; width: 100px" /> ¿Qué comentarios quieres añadir a {{ this.libro.titulo }}?
+                                        <form class="form-nota" #formComentarios="ngForm">
+                                            <textarea class="form-control" id="textarea" rows="3" placeholder="{{
+                                                    this.libro.observaciones
+                                                }}" ngModel #comentarios="ngModel" name="comentarios"></textarea>
+                                        </form>
+                                        <div class="modal-button">
+                                            <button type="button" class="btn btn-outline-success" (click)="
+                                                    modificarComentarios(
+                                                        this.libro.idLibro,
+                                                        formComentarios
+                                                    )
+                                                ">
+                                                Modificar
+                                            </button>
+                                            <button type="button" class="btn btn-outline-danger" (click)="modalRef.hide()">
+                                                Cancelar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </ng-template>
+                            </div>
+                            <div class="mt-4">
+                                <span class="mr-4" style="font-weight: bold">Nota: {{ this.libro.nota }}</span
+                                >
+                                <span
+                                    *ngFor="
+                                        let valor of this.libro.nota | stars
+                                    "
+                                >
+                                    <i
+                                        *ngIf="valor"
+                                        class="fas fa-star"
+                                        style="color: gold"
+                                    ></i>
+                                    <i *ngIf="!valor" class="far fa-star"></i>
+                                </span>
+                                <button class="btn btn-sm btn-outline-primary button-comentarios" (click)="openModal(templateModificarNota)">
+                                    Modificar nota
+                                </button>
+
+                                <ng-template #templateModificarNota>
+                                    <div class="modal-header">
+                                        <h4 class="modal-title pull-left">
+                                            {{ this.libro.titulo }}
+                                        </h4>
+                                        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                                            <span aria-hidden="true"
+                                                >&times;</span
+                                            >
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="../../../assets/star.svg" alt="libro" style="margin-bottom: 20px; width: 100px" /> ¿Qué nota le pondría a {{ this.libro.titulo }}? (De 0 a 5)
+                                        <form class="form-nota" #formNota="ngForm">
+                                            <label class="">
+                                                Nota
+                                            </label>
+                                            <input class="form-control col-md-2 ml-2" type="number" placeholder="{{
+                                                    this.libro.nota
+                                                }}" id="nota" min="0" max="5" ngModel #nota="ngModel" name="nota" />
+                                        </form>
+                                        <div class="modal-button">
+                                            <button type="button" class="btn btn-outline-success" (click)="
+                                                    modificarNota(
+                                                        this.libro.idLibro,
+                                                        formNota
+                                                    )
+                                                ">
+                                                Modificar
+                                            </button>
+                                            <button type="button" class="btn btn-outline-danger" (click)="modalRef.hide()">
+                                                Cancelar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

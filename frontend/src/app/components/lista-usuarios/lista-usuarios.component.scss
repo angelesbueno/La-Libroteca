@@ -1,0 +1,29 @@
+.container-lista {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+#container-table {
+    padding: 3% 0;
+}
+
+h2 {
+    text-align: center;
+}
+
+.table {
+    text-align: center; 
+    border: 1px solid silver;
+}
+
+.table thead {
+    background-color: #c4c8cc;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #05c3db40;
+}
+
+thead tr {
+    background-color: #e4e9ea;
+}

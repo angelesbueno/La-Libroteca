@@ -1,0 +1,83 @@
+.card-libro {
+    margin: 0 auto;
+    width: 80%;
+    border: none;
+    background-color: aliceblue;
+}
+
+.container-custom {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.container-custom img {
+    width: 70%;
+    padding: 1.75em 0;
+}
+
+.col-img {
+    text-align: center;
+}
+
+.leido {
+    cursor: auto !important;
+}
+
+.button-box {
+    padding-bottom: 1.75em;
+}
+
+.button-box button {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 5%;
+}
+
+.modal-button {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.modal-header {
+    background: -moz-linear-gradient(25deg, #CE0AFF 0, #429AD5 100%);
+    background: -webkit-gradient(linear, 25deg, color-stop(0, CE0AFF), color-stop(100%, 429AD5));
+    background: -webkit-linear-gradient(25deg, #CE0AFF 0, #429AD5 100%);
+    background: -o-linear-gradient(25deg, #CE0AFF 0, #429AD5 100%);
+    background: -ms-linear-gradient(25deg, #CE0AFF 0, #429AD5 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1301FE', endColorstr='#F4F60C', GradientType='1');
+    background: linear-gradient(25deg, #CE0AFF 0, #429AD5 100%);
+    color: white;
+}
+
+.modal-body {
+    background: -moz-linear-gradient(360deg, #EBF6FF 0, #6FB1E3 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, 360deg, color-stop(0, EBF6FF), color-stop(100%, 6FB1E3));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(360deg, #EBF6FF 0, #6FB1E3 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(360deg, #EBF6FF 0, #6FB1E3 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(360deg, #EBF6FF 0, #6FB1E3 100%);
+    /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1301FE', endColorstr='#F4F60C', GradientType='1');
+    /* for IE */
+    background: linear-gradient(360deg, #FFFFFF 0, #6FB1E3 100%);
+    /* W3C */
+}
+
+.modal-body .genial {
+    background-color: #1fa8e0 !important;
+    border-color: #1fa8e0 !important;
+    color: white;
+}
+
+.modal-body img {
+    width: 30%;
+    display: block;
+    margin: 0 auto;
+}
+
+.sinopsis {
+    text-align: justify;
+}

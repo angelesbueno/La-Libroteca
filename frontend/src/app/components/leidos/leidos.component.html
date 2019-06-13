@@ -1,0 +1,125 @@
+<app-navbar></app-navbar>
+<div class="jumbotron jumbotron-fluid" *ngIf="this.noLeidos">
+    <div class="container">
+        <h3 class="display-4">Tu lista está vacía</h3>
+        <p class="lead">¡Añade tantos libros como quieras!</p>
+        <button type="button" class="btn btn-outline-info mr-4 mb-2" [routerLink]="['/busquedaTitulo']">
+            Buscar por título
+        </button>
+        <button type="button" class="btn btn-outline-info mr-4 mb-2" [routerLink]="['/busquedaAutor']">
+            Buscar por autor
+        </button>
+        <button type="button" class="btn btn-outline-info mb-2" [routerLink]="['/perfil']">
+            Volver a perfil
+        </button>
+    </div>
+</div>
+<div class="respuesta" *ngIf="!this.noLeidos">
+    <div class="volver-perfil">
+        <a [routerLink]="['/perfil']" class="volver"><i class="fas fa-arrow-left mr-2"></i>Volver a Perfil</a
+                >
+        </div>
+    <div class="col-6 bloque animated fadeIn fast" *ngFor="let k of this.allReadedBooks | paginate: { itemsPerPage: 6, currentPage: p }">
+        <div class="row no-gutters card-custom">
+            <div class="col-md-3 portada">
+                <img [src]="k.portada" class="card-img" alt="{{ k.titulo }}" />
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{ k.titulo }}
+                    </h5>
+                    <p class="card-text autor">
+                        {{ k.autor }}
+                    </p>
+                    <div class="button-box">
+                        <button type="button" class="btn btn-outline-info btn-sm" [routerLink]="[
+                                '/libro-detalle-leido',
+                                k.idLibro
+                            ]"><i class="fas fa-book mr-2"></i>
+                            Info
+                        </button>
+                        <button type="button" class="btn btn-sm favorito" *ngIf="this.existeLibroFavorito(k.idGB)" (click)="openModalEliminarFavorito(templateEliminarFavorito)"><i class="fas fa-heart mr-2" style="color: red"></i>Favorito</button>
+
+                        <ng-template #templateEliminarFavorito>
+                            <div class="modal-header">
+                                <h4 class="modal-title pull-left">
+                                    {{ k.titulo }}
+                                </h4>
+                                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="../../../assets/corazon.png" alt="libro" style="margin-bottom: 20px" /> ¿Realmente desea eliminar este libro de su lista de favoritos?
+                                <div class="modal-button">
+                                    <button type="button" class="btn btn-outline-success" (click)="
+                                                borrarFavorito(
+                                                    k.id, k.idGB
+                                                )
+                                            "><i class="far fa-thumbs-up mr-2"></i>
+                                            Sí
+                                        </button>
+                                    <button type="button" class="btn btn-outline-danger" (click)="modalRef.hide()"><i
+                                                class="fas fa-times mr-2"></i>
+                                            Cancelar
+                                        </button>
+                                </div>
+                            </div>
+                        </ng-template>
+
+                        <button type="button" class="btn btn-outline-success btn-sm" *ngIf="!this.existeLibroFavorito(k.idGB)" (click)="addFavorito(templateFavorito, k.id)"><i class="fas fa-plus mr-2"></i>Añadir a favoritos</button>
+
+                        <ng-template #templateFavorito>
+                            <div class="modal-header">
+                                <h4 class="modal-title pull-left">{{ k.titulo }}</h4>
+                                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="../../../assets/corazon.png" alt="libro" style="margin-bottom: 20px" />
+                                <div class="modal-button">
+                                    <button type="button" class="btn btn-outline-primary genial" (click)="modalRef.hide()"><i class="far fa-thumbs-up mr-2"></i>¡Añadido a tu
+                                        lista de favoritos!</button>
+                                </div>
+                            </div>
+                        </ng-template>
+
+                        <button type="button" class="btn btn-outline-danger btn-sm" (click)="openModalEliminarLeido(templateEliminarLeido)"><i class="far fa-trash-alt mr-2"></i>
+                            Eliminar leído
+                        </button>
+
+                        <ng-template #templateEliminarLeido>
+                            <div class="modal-header">
+                                <h4 class="modal-title pull-left">
+                                    {{ k.titulo }}
+                                </h4>
+                                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="../../../assets/addLeido.png" alt="libro" style="margin-bottom: 20px" /> ¿Realmente desea eliminar este libro de su lista de leídos?
+                                <div class="modal-button">
+                                    <button type="button" class="btn btn-outline-success" (click)="
+                                            borrarLeido(templateEliminarLeido, k)
+                                        "><i class="far fa-thumbs-up mr-2"></i>
+                                        Sí
+                                    </button>
+                                    <button type="button" class="btn btn-outline-danger" (click)="modalRef.hide()"><i
+                                            class="fas fa-times mr-2"></i>
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+<app-footer></app-footer>
+<!-- </div> -->

@@ -1,0 +1,110 @@
+.container-fluid {
+    padding: 0;
+}
+
+.principal {
+    padding-bottom: 200px;
+}
+
+.banner1 {
+    width: 50%;
+    height: 20%;
+    background-image: url(../../../assets/bannerAzul.jpg);
+    background-size: cover;
+    display: inline-block;
+}
+
+.banner2 {
+    width: 50%;
+    height: 20%;
+    background-image: url(../../../assets/bannerAzul.jpg);
+    background-size: cover;
+    display: inline-block;
+}
+
+.textoAnimado1 {
+    animation-duration: 5s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    font-size: 4vw;
+    color: aliceblue;
+    text-align: center;
+    padding: 8% 0;
+}
+
+.textoAnimado2 {
+    animation-duration: 5s;
+    animation-name: slidein2;
+    animation-iteration-count: infinite;
+    font-size: 4vw;
+    color: aliceblue;
+    text-align: center;
+    padding: 8% 0;
+}
+
+@keyframes slidein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slidein2 {
+    from {
+        color: white;
+    }
+
+    to {
+        color: #05c3db;
+    }
+}
+
+.textoCita {
+    padding: 5%;
+    background-color: #eaeaea;
+}
+
+.textoCita div {
+    font-size: 2.5vw;
+}
+
+.textoCita small {
+    text-align: right;
+    display: block;
+    font-size: 2vw;
+}
+
+.video {
+    text-align: center;
+}
+
+.video iframe {
+    width: 60%;
+    height: 40vw;
+}
+
+.canvasPadre {
+    text-align: center;
+}
+
+.canvasPadre canvas {
+    -webkit-transition: all .9s ease;
+    /* Safari y Chrome */
+    -moz-transition: all .9s ease;
+    /* Firefox */
+    -o-transition: all .9s ease;
+    /* IE 9 */
+    -ms-transition: all .9s ease;
+}
+
+.canvasPadre:hover canvas {
+    // background-color: #fff9cf;
+    -webkit-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    -ms-transform: scale(1.25);
+    -o-transform: scale(1.25);
+    transform: scale(1.25);
+}

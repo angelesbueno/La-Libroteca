@@ -1,0 +1,23 @@
+<!-- Icons Materialize -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <img src="../../../assets/logo-libroteca.png" alt="logo libroteca" class="logo">
+        <!-- <div id="loginTitle">La Libroteca</div> -->
+
+        <form [formGroup]="loginForm">
+            <input type="text" id="login" class="fadeIn second" formControlName="usr" placeholder="Usuario">
+            <input type="password" id="password" class="fadeIn third" formControlName="pwd" placeholder="Contraseña">
+            <button class="btn-submit" type="submit" name="action" [disabled]="loginForm.invalid" (click)="login()">Login</button>
+            <div>
+                <small *ngIf="this.invalido" style="color: red">Formulario incompleto</small>
+                <small *ngIf="this.noAuth" style="color: red">Nombre de usuario o contraseña incorrectos</small>
+            </div>
+        </form>
+
+        <div id="formFooter">
+            <a class="underlineHover" [routerLink]="['/registro']">Regístrate</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+.container-fluid {
+    padding: 0;
+}
+
+.container-fluid .ism-slider {
+    width: 100% !important;
+}
+
+.container-cards {
+    padding: 5%;
+    background-color: #f9f9f9;
+}
+
+.container-cards .card-deck {
+    text-align: center;
+    justify-content: center;
+}
+
+.card {
+    border-radius: 1em;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=11, Direction=0, Color=#EBEBEB)";
+    -moz-box-shadow: 0 0 11px 5px #EBEBEB;
+    -webkit-box-shadow: 0 0 11px 5px #EBEBEB;
+    box-shadow: 0 0 11px 5px #EBEBEB;
+    overflow: hidden;
+    min-width: 273px;
+    max-width: 407px;
+    margin-bottom: 2rem;
+}
+
+.card1 {
+    background-image: url(../../../assets/perfil-leidos.jpg);
+    background-size: cover;
+}
+
+.card2 {
+    background-image: url(../../../assets/favoritos.jpg);
+    background-size: cover;
+}
+
+.card3 {
+    background-image: url(../../../assets/letras.jpg);
+    background-size: cover;
+}
+
+.card .card-body {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    margin: 2rem;
+    color: white;
+    border-radius: .5rem;
+    -webkit-transition: all .9s ease;
+    /* Safari y Chrome */
+    -moz-transition: all .9s ease;
+    /* Firefox */
+    -o-transition: all .9s ease;
+    /* IE 9 */
+    -ms-transition: all .9s ease;
+    /* Opera */
+}
+
+.card:hover .card-body {
+    -webkit-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    -ms-transform: scale(1.25);
+    -o-transform: scale(1.25);
+    transform: scale(1.25);
+}
+
+.card hr {
+    background-color: white;
+}
+
+a:hover {
+    text-decoration: none;
+}

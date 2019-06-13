@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark navbar-custom">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <a class="navbar-brand" [routerLink]="['/inicio']">
+        <img src="../../../assets/logo-libroteca.png" alt="logo libroteca" class="logo"></a>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="navbar-nav ul-custom">
+            <li class="nav-item" routerLinkActive="active">
+                <a class=" nav-link " [routerLink]="['/inicio']">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">Búsqueda</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" [routerLink]="['/busquedaTitulo']">Título</a>
+                    <a class="dropdown-item" [routerLink]="['/busquedaAutor']">Autor</a>
+                </div>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class=" nav-link " [routerLink]="['/perfil']">Perfil</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active" *ngIf="this.rol === 'admin'">
+                <a class=" nav-link " [routerLink]="['/listaUsuarios']">Usuarios</a>
+            </li>
+        </ul>
+        <div class="username">
+            <small class="nav-item nav-link">Hola, {{ this.username }}</small>
+            <small class="nav-item nav-link"><a class="logout" (click) = "logout()"><i class="fas fa-power-off"></i>Cerrar sesión</a></small>
+        </div>
+    </div>
+</nav>

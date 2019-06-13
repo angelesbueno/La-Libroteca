@@ -1,0 +1,84 @@
+.nav-item.dropdown:hover > .dropdown-menu {
+  display: block !important;
+  position: absolute !important;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(5,195,219, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.dropdown-menu {
+    padding: 0;
+}
+
+.navbar-brand {
+    text-align: center;
+    margin-right: 0;
+}
+
+.logo {
+    width: 65%;
+}
+.ul-custom, .username {
+  width: 100%;
+}
+
+.username {
+  text-align: right;
+}
+
+.username small {
+  display: inline-block;
+}
+
+.username small i {
+  margin-right: 5px;
+}
+
+.logout {
+  color: #212529 !important;
+  cursor: pointer;
+}
+
+.navbar-custom {
+  background-color: #e4e9ea !important;
+  padding: 0;
+}
+
+.dropdown a:hover {
+  color: #31a0b8!important;
+}
+
+.navbar-custom .dropdown-menu {
+  border: none;
+  background-color: #e4e9ea;
+  text-align: center;
+}
+
+.dropdown-item:hover {
+  color: black!important;
+}
+
+.navbar-custom a {
+  color: #212529 !important;
+}
+
+.dropdown-menu a:hover {
+  background-color: #05c3db;
+  border-radius: 0!important;
+}
+
+.navbar-custom a:hover {
+  color: #31a0b8 !important;
+}
+
+.dropdown-menu a:hover {
+    color: white !important;
+  }
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+  }
+}

@@ -1,0 +1,96 @@
+.container-custom {
+    margin: 5% auto;
+}
+
+.container-custom small {
+    color: red;
+}
+
+.bloque {
+    max-width: 540px;
+    display: inline-block;
+    padding: 3%;
+}
+
+.card-custom {
+    text-align: center;
+    margin: 2%;
+}
+
+.portada {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.portada img.card-img {
+    height: 215px;
+    max-width: 150px;
+    width: 134.5px;
+}
+
+.card-custom .card-body {
+    padding: 0 7%;
+    height: 100%;
+}
+
+.autor {
+    margin: 0;
+}
+
+.button-box {
+    margin-top: 15px;
+}
+
+.button-box button {
+    margin: 0 5px;
+}
+
+.button-box .btn-warning {
+    cursor: auto;
+}
+
+// estilos modal
+.modal-button {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.modal-header {
+    background: -moz-linear-gradient(25deg, #CE0AFF 0, #429AD5 100%);
+    background: -webkit-gradient(linear, 25deg, color-stop(0, CE0AFF), color-stop(100%, 429AD5));
+    background: -webkit-linear-gradient(25deg, #CE0AFF 0, #429AD5 100%);
+    background: -o-linear-gradient(25deg, #CE0AFF 0, #429AD5 100%);
+    background: -ms-linear-gradient(25deg, #CE0AFF 0, #429AD5 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1301FE', endColorstr='#F4F60C', GradientType='1');
+    background: linear-gradient(25deg, #CE0AFF 0, #429AD5 100%);
+    color: white;
+}
+
+.modal-body {
+    background: -moz-linear-gradient(360deg, #EBF6FF 0, #6FB1E3 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, 360deg, color-stop(0, EBF6FF), color-stop(100%, 6FB1E3));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(360deg, #EBF6FF 0, #6FB1E3 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(360deg, #EBF6FF 0, #6FB1E3 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(360deg, #EBF6FF 0, #6FB1E3 100%);
+    /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1301FE', endColorstr='#F4F60C', GradientType='1');
+    /* for IE */
+    background: linear-gradient(360deg, #FFFFFF 0, #6FB1E3 100%);
+    /* W3C */
+}
+
+.modal-body .genial {
+    background-color: #1fa8e0 !important;
+    border-color: #1fa8e0 !important;
+    color: white;
+}
+
+.modal-body img {
+    width: 30%;
+    display: block;
+    margin: 0 auto;
+}

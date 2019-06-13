@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+<div class="container container-fluid container-editar">
+    <div class="perfil">
+        <form class="col s12" [formGroup]="editForm">
+            <div class="form-group">
+                <label for="nombre">Nombre*</label>
+                <input formControlName="nombre" type="text" class="form-control" />
+                <span class="helper-text" style="color:red" *ngIf="editForm.get('nombre').hasError('required') && editForm.get('nombre').touched">Campo obligatorio</span>
+            </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos*</label>
+                <input formControlName="apellidos" type="text" class="form-control" />
+                <span class="helper-text" style="color:red" *ngIf="editForm.get('apellidos').hasError('required') && editForm.get('apellidos').touched">Campo obligatorio</span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email*</label>
+                <input formControlName="email" type="email" class="form-control" />
+                <span class="helper-text" style="color:red" *ngIf="editForm.get('email').hasError('required') && editForm.get('email').touched">Campo obligatorio</span>
+                <span class="helper-text" style="color:red" *ngIf="editForm.get('email').hasError('pattern') && editForm.get('email').touched">Formato incorrecto</span>
+                <span class="helper-text" style="color:red" *ngIf="editForm.get('email').hasError('emailTaken') && editForm.get('email').touched">Este email ya está registrado</span>
+            </div>
+            <div class="form-group">
+                <label for="usuario">Usuario*</label>
+                <input formControlName="usuario" type="text" class="form-control" />
+                <span class="helper-text" style="color:red" *ngIf="editForm.get('usuario').hasError('required') && editForm.get('usuario').touched">Campo obligatorio</span>
+                <span class="helper-text" style="color:red" *ngIf="editForm.get('usuario').hasError('minlength') && editForm.get('usuario').touched">Mínimo 4 caracteres</span>
+                <span class="helper-text" style="color:red" *ngIf="editForm.get('usuario').hasError('userTaken') && editForm.get('usuario').touched">El usuario ya existe</span>
+            </div>
+            <div class="form-group">
+                <label for="pass">Contraseña*</label>
+                <input formControlName="contrasena" type="password" class="form-control" />
+                <span class="helper-text" style="color:red" *ngIf="editForm.get('contrasena').hasError('required') && editForm.get('contrasena').touched">Campo obligatorio</span>
+                <span class="helper-text" style="color:red" *ngIf="editForm.get('contrasena').hasError('minlength') && editForm.get('contrasena').touched">Mínimo 4 caracteres</span>
+            </div>
+            <div class="form-group">
+                <label for="pass2">Confirmar contraseña</label>
+                <input formControlName="contrasena2" type="password" class="form-control" />
+                <span class="helper-text" style="color:red" *ngIf="editForm.get('contrasena2').invalid && editForm.get('contrasena2').touched && editForm.get('contrasena').touched">Las contraseñas no coinciden</span>
+            </div>
+            <div class="div-btn-submit editButton">
+                <button class="btn btn-outline-danger volver" type="" name="action" [routerLink]="['/perfil']"><i class="fas fa-arrow-left"></i>
+                        Volver
+                        </button>
+                <button class="btn btn-outline-success" type="submit" name="action" [disabled]="editForm.invalid" (click)="editar(editForm)"><i class="fas fa-paper-plane"></i>
+                        Editar
+                        </button>
+            </div><br>
+            <span class="helper-text" style="color:red" *ngIf="this.invalido">Datos incorrectos</span>
+            <span class="helper-text" style="color:green; text-align: center; display: block;" *ngIf="this.editado">Usuario modificado correctamente, espere a ser redirigido al login para volver a entrar correctamente</span>
+        </form>
+    </div>
+</div>
+<app-footer></app-footer>

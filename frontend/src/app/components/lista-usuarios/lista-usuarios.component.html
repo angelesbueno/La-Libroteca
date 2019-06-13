@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div class="container container-fluid container-lista">
+    <h2>Usuarios registrados</h2>
+    <div id="container-table">
+        <table
+            class="table table-hover"
+        >
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Nombre de usuario</th>
+                    <th scope="col">Rol</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of this.users">
+                    <th scope="row">{{ user.idUsuario }}</th>
+                    <td>{{ user.nombre }}</td>
+                    <td>{{ user.apellidos }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.rol }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<app-footer></app-footer>

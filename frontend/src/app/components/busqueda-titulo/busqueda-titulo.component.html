@@ -1,0 +1,138 @@
+<app-navbar></app-navbar>
+<div class="container container-custom">
+    <h2 style="padding-bottom: .5em">Búsqueda por título</h2>
+
+    <form (ngSubmit)="enviarTitulo(formTitulo)" [formGroup]="formTitulo">
+        <div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Título: </label>
+                <div class="col-8">
+                    <input class="form-control" type="text" placeholder="Título" formControlName="titulo" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">&nbsp;</label>
+            <div class="input-group col-md-4">
+                <button type="submit" class="btn btn-outline-primary btn-sm" [disabled]="!formTitulo.valid">
+                    Buscar
+                </button>
+            </div>
+            <small *ngIf="noLibro">Título no encontrado</small>
+            <small *ngIf="errorGb" style="margin-top: 3%">El servidor de Google Books no está disponible temporalmente, vuelve a intentarlo</small>
+        </div>
+        <div class="enlace-volver">
+            <a [routerLink]="['/inicio']" class="volver"><i class="fas fa-arrow-left mr-2"></i>Volver a Inicio</a
+            >
+        </div>
+
+        <small class="helper-text" *ngIf="this.invalido"
+            >Datos incorrectos</small
+        >
+        <div class="respuesta" *ngIf="this.respuesta">
+            <div
+                class="col-6 bloque animated fadeIn fast"
+                *ngFor="
+                    let libro of this.listalib
+                        | paginate: { itemsPerPage: 6, currentPage: p }
+                "
+            >
+                <div class="row no-gutters card-custom">
+                    <div class="col-md-3 portada">
+                        <img
+                            [src]="
+                                !libro.volumeInfo.imageLinks
+                                    ? '../../../assets/portada.png'
+                                    : libro.volumeInfo.imageLinks.smallThumbnail
+                            "
+                            class="card-img"
+                            alt="{{ libro.volumeInfo.title }}"
+                        />
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{ libro.volumeInfo.title }}
+                            </h5>
+                            <p
+                                class="card-text autor"
+                                *ngFor="let autor of libro.volumeInfo.authors"
+                            >
+                                {{ autor }}
+                            </p>
+                            <div class="button-box">
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-info btn-sm"
+                                    [routerLink]="['/libro-detalle', libro.id]"
+                                >
+                                    <i class="fas fa-book mr-2"></i>Info
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-warning btn-sm"
+                                    *ngIf="this.existeLibroLeido(libro.id)"
+                                >
+                                    <i
+                                        class="fas fa-check mr-2"
+                                        style="color: green"
+                                    ></i
+                                    >Leído
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-success btn-sm"
+                                    *ngIf="!this.existeLibroLeido(libro.id)"
+                                    (click)="addLeido(template, libro)"
+                                >
+                                    <i class="fas fa-plus mr-2"></i>Añadir a
+                                    leídos
+                                </button>
+
+                                <ng-template #template>
+                                    <div class="modal-header">
+                                        <h4 class="modal-title pull-left">
+                                            {{ this.libro.volumeInfo.title }}
+                                        </h4>
+                                        <button
+                                            type="button"
+                                            class="close pull-right"
+                                            aria-label="Close"
+                                            (click)="modalRef.hide()"
+                                        >
+                                            <span aria-hidden="true"
+                                                >&times;</span
+                                            >
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img
+                                            src="../../../assets/addLeido.png"
+                                            alt="libro"
+                                        />
+                                        <div class="modal-button">
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-primary genial"
+                                                (click)="modalRef.hide()"
+                                            >
+                                                <i
+                                                    class="far fa-thumbs-up mr-2"
+                                                ></i
+                                                >¡Añadido a leídos!
+                                            </button>
+                                        </div>
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pagination-controls
+                (pageChange)="p = $event"
+            ></pagination-controls>
+        </div>
+    </form>
+</div>
+<app-footer></app-footer>

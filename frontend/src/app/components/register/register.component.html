@@ -1,0 +1,56 @@
+<div class="nav-registro">
+    <img src="../../../assets/logo-libroteca.png" alt="logo-libroteca">
+</div>
+<div class="wrapper">
+    <form class="col s12" [formGroup]="registerForm">
+        <div class="form-group">
+            <label for="nombre">Nombre*</label>
+            <input formControlName="nombre" type="text" class="form-control" />
+            <span class="helper-text" style="color:red" *ngIf="registerForm.get('nombre').hasError('required') && registerForm.get('nombre').touched">Campo obligatorio</span>
+        </div>
+        <div class="form-group">
+            <label for="apellidos">Apellidos*</label>
+            <input formControlName="apellidos" type="text" class="form-control" />
+            <span class="helper-text" style="color:red" *ngIf="registerForm.get('apellidos').hasError('required') && registerForm.get('apellidos').touched">Campo obligatorio</span>
+        </div>
+        <div class="form-group">
+            <label for="email">Email*</label>
+            <input formControlName="email" type="email" class="form-control" />
+            <span class="helper-text" style="color:red" *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').touched">Campo obligatorio</span>
+            <span class="helper-text" style="color:red" *ngIf="registerForm.get('email').hasError('pattern') && registerForm.get('email').touched">Formato incorrecto</span>
+            <span class="helper-text" style="color:red" *ngIf="registerForm.get('email').hasError('emailTaken') && registerForm.get('email').touched">Este email ya está registrado</span>
+        </div>
+        <div class="form-group">
+            <label for="usuario">Usuario*</label>
+            <input formControlName="usuario" type="text" class="form-control" />
+            <span class="helper-text" style="color:red" *ngIf="registerForm.get('usuario').hasError('required') && registerForm.get('usuario').touched">Campo obligatorio</span>
+            <span class="helper-text" style="color:red" *ngIf="registerForm.get('usuario').hasError('minlength') && registerForm.get('usuario').touched">Mínimo 4 caracteres</span>
+            <span class="helper-text" style="color:red" *ngIf="registerForm.get('usuario').hasError('userTaken') && registerForm.get('usuario').touched">El usuario ya existe</span>
+        </div>
+        <div class="form-group">
+            <label for="pass">Contraseña*</label>
+            <input formControlName="contrasena" type="password" class="form-control" />
+            <span class="helper-text" style="color:red" *ngIf="registerForm.get('contrasena').hasError('required') && registerForm.get('contrasena').touched">Campo obligatorio</span>
+            <span class="helper-text" style="color:red" *ngIf="registerForm.get('contrasena').hasError('minlength') && registerForm.get('contrasena').touched">Mínimo 4 caracteres</span>
+        </div>
+        <div class="form-group">
+            <label for="pass2">Confirmar contraseña</label>
+            <input formControlName="contrasena2" type="password" class="form-control" />
+            <span class="helper-text" style="color:red" *ngIf="registerForm.get('contrasena2').invalid && registerForm.get('contrasena2').touched && registerForm.get('contrasena').touched">Las contraseñas no coinciden</span>
+        </div>
+        <div class="div-btn-submit loginButton">
+            <button class="btn btn-outline-danger" type="" name="action" [routerLink]="['/home']"><i class="fas fa-arrow-left"></i>
+                Volver
+                </button>
+            <button class="btn btn-outline-success" type="submit" name="action" [disabled]="registerForm.invalid" (click)="onSubmit()"><i class="fas fa-paper-plane"></i>
+                Registrar
+                </button>
+        </div><br>
+        <span class="helper-text" style="color:red" *ngIf="this.invalido">Datos incorrectos</span>
+        <span class="helper-text" style="color:green; text-align: center; display: block;" *ngIf="this.registrado">Usuario dado de alta correctamente</span>
+    </form>
+</div>
+<div class="footer-registro">
+    <small class="texto-footer-registro">Ángeles Bueno Aguilar</small>
+    <small class="texto-footer-registro">2º DAW. IES Campanillas</small>
+</div>

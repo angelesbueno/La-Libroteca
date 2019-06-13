@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<div *ngIf="this.libro" class="container-fluid container-custom">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-3 card-libro animated fadeIn fast">
+                <div class="row no-gutters">
+                    <div class="col-md-4 col-img">
+                        <img [src]="!this.libro.volumeInfo.imageLinks ? '../../../assets/portada.png' : libro.volumeInfo.imageLinks.smallThumbnail" class="card-img" alt="{{this.libro.volumeInfo.title}}">
+                        <div class="button-box">
+                            <button type="button" class="btn btn-warning btn-sm leido" *ngIf="this.existeLibroLeido(libro.id)"><i class="fas fa-check mr-2" style="color: green"></i>Leído</button>
+                            <button type="button" class="btn btn-outline-success btn-sm" *ngIf="!this.existeLibroLeido(libro.id)" (click)="addLeido(template, libro)"><i class="fas fa-plus mr-2"></i>Añadir a leídos</button>
+
+                            <ng-template #template>
+                                <div class="modal-header">
+                                    <h4 class="modal-title pull-left">{{ this.libro.volumeInfo.title }}</h4>
+                                    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="../../../assets/addLeido.png" alt="libro">
+                                    <div class="modal-button">
+                                        <button type="button" class="btn btn-outline-primary genial" (click)="modalRef.hide()"><i class="far fa-thumbs-up mr-2"></i>¡Añadido a tu lista de libros leídos!</button>
+                                    </div>
+                                </div>
+                            </ng-template>
+                            <button type="button" class="btn btn-outline-info btn-sm volver" (click)="volver()"><i class="fas fa-arrow-left mr-2"></i>Volver</button>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ this.libro.volumeInfo.title }}</h3>
+                            <h6 class="card-text" *ngFor="let autor of this.autor">{{autor}}
+                            </h6>
+                            <small class="card-text">{{ editorial }}</small>
+                            <hr/>
+                            <p class="card-text sinopsis">
+                                {{ sinopsis }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
