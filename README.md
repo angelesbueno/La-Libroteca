@@ -8,7 +8,7 @@ La aplicación tiene por separado la parte backend hecha con NodeJS, de la parte
 Se puede acceder a ella pinchando <a href="https://librotecafront.eu-gb.mybluemix.net" target="_blank">aquí</a>
 
 Para ejecutar en local:  
-1: Clonar todo este repositorio.
+1: Clonar todo este repositorio. 
 2: Importar la base de datos MySQL en phpMyAdmin --> Archivo libroteca.sql que se adjunta en el repositorio.  
 3: Hace falta tener instalado NodeJS, npm y Angular7.  
 4: Dentro de la carpeta backend --> ejecutar por consola npm install y, para levantar el servidor, npm start.  
