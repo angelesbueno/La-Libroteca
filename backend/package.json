@@ -31,7 +31,7 @@
         "jsonwebtoken": "^8.5.1",
         "log4js": "3.0.4",
         "md5": "^2.2.1",
-        "moment": "2.22.2",
+        "moment": "2.29.4",
         "mssql": "^4.3.2",
         "mysql": "^2.17.0",
         "swagger-ui-express": "3.0.10",
