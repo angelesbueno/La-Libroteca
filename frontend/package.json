@@ -26,7 +26,7 @@
         "@types/jquery": "^3.3.29",
         "clone-response": "^1.0.2",
         "core-js": "^2.5.4",
-        "express": "^4.17.1",
+        "express": "^4.17.3",
         "material-components-web": "^1.1.1",
         "materialize-css": "^1.0.0-rc.2",
         "ngx-bootstrap": "^4.2.0",
